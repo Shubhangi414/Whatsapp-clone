@@ -8,7 +8,7 @@ padding:15px 60px 5px 24px;
 color:#4A4A4A
 `
 
-const HeaderMenu = () => {
+const HeaderMenu = ({setOpenDrawer}) => {
 
     const [open, setOpen] = useState(null);
 
@@ -38,7 +38,7 @@ setOpen(e.currentTarget)
             }
         }
       >
-        <MenuOption onClick={handleClose}>Profile</MenuOption>
+        <MenuOption onClick={()=>{handleClose(); setOpenDrawer(true);}}>Profile</MenuOption>
         
       </Menu>
 
