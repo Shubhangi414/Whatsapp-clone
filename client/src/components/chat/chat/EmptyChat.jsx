@@ -47,7 +47,6 @@ const EmptyChat = () => {
         <SubTitle>Now send and receive messages without keeping your phone online.</SubTitle>
         <SubTitle> Use WhatsApp on upto 4 linked devices and one phone at the same time.</SubTitle>
         <StyledDivider/>
-      
       </Container>
     </Component>
   )
