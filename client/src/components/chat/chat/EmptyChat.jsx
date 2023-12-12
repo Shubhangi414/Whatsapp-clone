@@ -12,8 +12,8 @@ height:100%;
 const Container = styled(Box)`
 padding:0px 200px;
 `;
-
-const Image = styled('img')({
+ 
+ const Image = styled('img')({
 width:400,
 marginTop:100,
 
@@ -24,7 +24,7 @@ font-size:32px;
 margin: 25px 0 10px 0;
 font-family:inherit;
 font-weight:300;
-color:#41525d
+color:#41525d;
 `
 const SubTitle = styled(Typography)`
 font-size:14px;
@@ -51,5 +51,6 @@ const EmptyChat = () => {
     </Component>
   )
 }
+
 
 export default EmptyChat

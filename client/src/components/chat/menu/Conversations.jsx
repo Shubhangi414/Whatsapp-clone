@@ -19,7 +19,7 @@ opacity: .4;
 `;
 
 
-const Conversations = () => {
+const Conversations = ({text}) => {
 
     const [users, setUsers] = useState([]);
 
@@ -27,12 +27,13 @@ const Conversations = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await getUsers();
-            setUsers(response)
+            let data = await getUsers();
+            let fiteredData = data.filter(user => user.name.toLowerCase().includes(text.toLowerCase()));
+            setUsers(fiteredData);
 
         }
         fetchData();
-    }, [])
+    }, [text])
 
 
     return (

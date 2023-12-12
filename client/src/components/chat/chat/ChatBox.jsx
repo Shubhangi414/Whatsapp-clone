@@ -1,17 +1,30 @@
+
 import { Box } from "@mui/material"
 import ChatHeader from "./ChatHeader"
 import Messages from "./Messages"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AccountContext } from "../../../context/AccountProvider"
+import { getConversation } from "../../../service/api"
 
 const ChatBox = () => {
 
-    const {person} = useContext(AccountContext)
+    const {person, account} = useContext(AccountContext)
+
+    const [conversation, setConversation] = useState({})
+
+    useEffect(()=>{
+    const getConversationDetail = async () =>{
+     let data =  await getConversation({senderId: account.sub , receiverId: person.sub })
+     setConversation(data)
+    
+    }
+    getConversationDetail();
+    },[person.sub])
 
   return (
     <Box sx={{height: '75%'}}>
       <ChatHeader person={person}/>
-      <Messages person= {person}/>
+      <Messages person= {person} conversation={conversation} />
 
     </Box>
   )
